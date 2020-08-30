@@ -26,6 +26,7 @@ module.exports = async (query, request) => {
   )
 
   if (result.body.code === 200) {
+    result.cookie = result.cookie.map(item => item + '; SameSite=None; Secure')
     result = {
       status: 200,
       body: {
